@@ -1,0 +1,281 @@
+/* Reseteo y base */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: #1f2937;
+  background: #f7f7f8;
+  line-height: 1.5;
+}
+
+/* Contenedores */
+.container {
+  width: min(1100px, 92vw);
+  margin-inline: auto;
+}
+
+/* Topbar / Nav */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #111827;
+  border-bottom: 1px solid #111827;
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+}
+.logo { color: #fff; font-weight: 700; letter-spacing: .3px; }
+.menu { list-style: none; display: flex; gap: 18px; margin: 0; padding: 0; }
+.menu a {
+  color: #d1d5db;
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 10px;
+}
+.menu a:hover { background: #1f2937; color: #fff; }
+.badge {
+  display: inline-block;
+  min-width: 22px;
+  padding: 2px 6px;
+  font-size: 12px;
+  line-height: 1;
+  text-align: center;
+  background: #10b981;
+  color: #051014;
+  border-radius: 999px;
+  margin-left: 6px;
+}
+
+/* Hero */
+.hero {
+  padding: 96px 0 56px;
+  background: radial-gradient(80% 80% at 50% 20%, #e5f5ff 0%, #f7f7f8 60%);
+  text-align: center;
+}
+.hero h1 { font-size: clamp(28px, 4vw, 44px); margin: 0 0 10px; }
+.hero p { color: #4b5563; margin: 0 0 18px; }
+
+/* Secciones */
+.section { padding: 64px 0; }
+.section h2 { margin: 0 0 22px; font-size: clamp(22px, 3vw, 32px); }
+
+/* Cards de producto */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+.card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 1px 0 rgba(0,0,0,.03);
+  display: flex;
+  flex-direction: column;
+}
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.card h3 {
+  font-size: 16px;
+  margin: 14px 14px 6px;
+}
+.precio {
+  margin: 0 14px 10px;
+  font-weight: 600;
+  color: #111827;
+}
+.card .btn {
+  margin: 10px 14px 14px;
+}
+
+/* Carrito */
+.carrito {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 14px;
+}
+#lista-carrito {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#lista-carrito li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  border-bottom: 1px dashed #e5e7eb;
+}
+#lista-carrito li:last-child { border-bottom: none; }
+#lista-carrito button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 16px;
+}
+#lista-carrito button:hover { transform: scale(1.05); }
+.acciones-carrito { margin-top: 12px; display: flex; justify-content: flex-end; }
+
+/* Botones */
+.btn {
+  appearance: none;
+  border: none;
+  background: #111827;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform .06s ease, box-shadow .2s ease, background .2s ease;
+  box-shadow: 0 4px 16px rgba(17,24,39,0.15);
+}
+.btn:hover { background: #0b1220; transform: translateY(-1px); }
+.btn:active { transform: translateY(0); box-shadow: 0 2px 8px rgba(17,24,39,0.15); }
+.btn.secundario {
+  background: #f3f4f6;
+  color: #111827;
+  box-shadow: none;
+  border: 1px solid #e5e7eb;
+}
+.btn.secundario:hover { background: #e5e7eb; }
+
+/* Footer */
+.footer {
+  padding: 28px 0;
+  border-top: 1px solid #e5e7eb;
+  text-align: center;
+  color: #6b7280;
+  background: #fff;
+}
+
+/* Responsivo */
+@media (max-width: 640px) {
+  .nav { padding: 12px 0; }
+  .menu { gap: 10px; flex-wrap: wrap; }
+}
+
+/* ====== Estilos responsivos y extras ====== */
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+  }
+  nav ul.active {
+    display: flex;
+  }
+  .menu-toggle {
+    display: block;
+  }
+}
+
+#productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.btn-whatsapp {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #25d366;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+}
+.btn-whatsapp:hover {
+  background: #1ebe5b;
+}
+/* Carrito lateral moderno - estilos */
+:root{
+  --brand-bg: #0f172a;
+  --accent: #06b6d4;
+  --muted: #64748b;
+  --surface: #ffffff;
+  --radius: 12px;
+  --shadow: 0 10px 30px rgba(2,6,23,0.12);
+}
+*{box-sizing:border-box}
+body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;}
+.cart-sidebar{
+  position:fixed; right:0; top:0; width:360px; max-width:96%; height:100vh;
+  background:linear-gradient(180deg,var(--surface),#fbfdff);
+  border-left:1px solid rgba(15,23,42,0.04);
+  box-shadow:var(--shadow);
+  transform:translateX(120%); transition:transform 320ms cubic-bezier(.2,.8,.2,1);
+  z-index:1400; display:flex; flex-direction:column; overflow:hidden;
+  border-top-left-radius:var(--radius); border-bottom-left-radius:var(--radius);
+}
+.cart-sidebar.visible{ transform:translateX(0%); }
+.cart-header{ padding:1.1rem 1rem; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid rgba(2,6,23,0.03); }
+.cart-header h3{ margin:0; font-size:1.05rem; color:var(--brand-bg); }
+.cart-header button{ background:transparent; border:none; font-size:1.6rem; cursor:pointer; color:var(--muted); }
+
+.cart-items{ padding:1rem; overflow:auto; flex:1; display:flex; flex-direction:column; gap:.8rem; }
+.cart-item{ display:flex; gap:.9rem; align-items:center; padding:.6rem; border-radius:10px; background: linear-gradient(180deg, rgba(2,6,23,0.01), transparent); }
+.cart-item img{ width:68px; height:68px; object-fit:cover; border-radius:8px; }
+.cart-item .meta{ flex:1; }
+.cart-item .meta strong{ display:block; font-size:0.95rem; margin-bottom:.25rem; color:var(--brand-bg); }
+.cart-item .meta .price{ font-size:0.9rem; color:var(--muted); margin-bottom:.4rem; }
+.qty-controls{ display:inline-flex; gap:.4rem; align-items:center; background:transparent; }
+.qty-btn{ min-width:32px; height:32px; border-radius:8px; border:1px solid rgba(15,23,42,0.06); background:#fff; cursor:pointer; font-weight:600; }
+.qty-display{ min-width:28px; text-align:center; font-weight:600; color:var(--brand-bg); }
+
+.cart-footer{ padding:1rem; border-top:1px solid rgba(2,6,23,0.03); background: linear-gradient(180deg, rgba(255,255,255,0.6), transparent); }
+.cart-total{ font-weight:700; font-size:1.05rem; display:flex; justify-content:space-between; align-items:center; }
+.cart-actions{ display:flex; gap:.6rem; margin-top:.7rem; }
+.cart-actions button{ flex:1; padding:.65rem .8rem; border-radius:10px; border:none; cursor:pointer; font-weight:700; }
+#checkoutBtn{ background:var(--accent); color:#fff; }
+#emptyCartBtn{ background:transparent; border:1px solid rgba(15,23,42,0.06); color:var(--brand-bg); }
+
+.cart-toggle{
+  position: fixed; right: 1rem; bottom: 5.6rem;
+  background: var(--brand-bg); color:#fff; border: none; padding:.6rem .9rem; border-radius:999px;
+  box-shadow: 0 10px 30px rgba(2,6,23,0.12); z-index:1500; cursor:pointer; display:flex; align-items:center; gap:.5rem; font-weight:700;
+}
+.cart-toggle #cartCount{ background:#fff; color:var(--brand-bg); padding:.12rem .4rem; border-radius:999px; font-size:0.85rem; margin-left:6px; font-weight:800; }
+
+.whatsapp-float{ position: fixed; right: 1rem; bottom: 1rem; width:56px; height:56px; border-radius:999px; display:flex; align-items:center; justify-content:center; box-shadow:0 10px 30px rgba(0,0,0,0.12); z-index:1500; text-decoration:none; }
+.whatsapp-float svg{ width:22px; height:22px; }
+
+/* Small screens */
+@media (max-width:640px){
+  .cart-sidebar{ width: 100%; border-radius:0; }
+  .cart-toggle{ right: 1rem; bottom: 7.2rem; }
+}
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  background-color: #25D366;
+  border-radius: 50%;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+.whatsapp-float img {
+  display: block;
+}
